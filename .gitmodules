@@ -1,0 +1,3 @@
+[submodule "Backend/CLIP_model"]
+	path = Backend/CLIP_model
+	url = https://github.com/openai/CLIP

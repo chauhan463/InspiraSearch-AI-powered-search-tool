@@ -7,7 +7,7 @@ import numpy as np
 from flask import Flask, jsonify, request, send_from_directory, abort
 from flask_cors import CORS
 import os
-import comp
+
 
 
 app = Flask(__name__)
