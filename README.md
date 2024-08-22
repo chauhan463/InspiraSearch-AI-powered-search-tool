@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# InspiraSearch: AI-Powered Search Tool
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+InspiraSearch is a powerful AI-driven search tool leveraging CLIP (Contrastive Language-Image Pretraining) to allow users to search for images based on text or other images. Whether you're looking to find similar images or search through a directory using descriptive text, InspiraSearch makes it easy and efficient.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Text-Based Image Search**: Enter a descriptive text to find images that match your query.
+- **Image-Based Search**: Upload an image to find similar images in the directory.
+- **Local Storage Integration**: User preferences and recent search results are stored locally to ensure a smooth experience across sessions.
+- **Responsive UI**: The tool is designed to work seamlessly on various screen sizes.
+- **CLIP Model**: Powered by OpenAI's CLIP model, which efficiently processes both text and images for powerful search capabilities.
 
-### `npm start`
+## Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Before you begin, ensure you have met the following requirements:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Python 3.x** installed on your local machine.
+- **Node.js and npm** installed to run the React frontend.
+- **Pip** for managing Python packages.
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Backend
 
-### `npm run build`
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/inspiraSearch.git
+    cd inspiraSearch/backend
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Create a virtual environment**:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Install required packages**:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Run the backend server**:
+    ```bash
+    flask run
+    ```
 
-### `npm run eject`
+### Frontend
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Navigate to the frontend directory**:
+    ```bash
+    cd ../frontend
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. **Start the React development server**:
+    ```bash
+    npm start
+    ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+### Image Search
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Select Input Image**: Choose an image from your local device to search for similar images.
+- **Select Base Directory**: Provide the path to the directory where images are stored.
+- **Select Top Images**: Define the number of top results to display.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Text Search
 
-### Code Splitting
+- **Enter Description**: Input text to search for images that match the description.
+- **Select Base Directory**: Provide the path to the directory where images are stored.
+- **Select Top Images**: Define the number of top results to display.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Error Handling
 
-### Analyzing the Bundle Size
+- The tool will alert you if the directory is invalid or if no image is selected.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributing
 
-### Making a Progressive Web App
+To contribute to InspiraSearch:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. **Fork the repository**.
+2. **Create a new branch** (`git checkout -b feature-branch`).
+3. **Commit your changes** (`git commit -m 'Add some feature'`).
+4. **Push to the branch** (`git push origin feature-branch`).
+5. **Open a Pull Request**.
 
-### Advanced Configuration
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is open source and available under the [MIT License](LICENSE).
