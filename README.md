@@ -24,7 +24,7 @@ Before you begin, ensure you have met the following requirements:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/yourusername/inspiraSearch.git
+    git clone https://github.com/chauhan463/InspiraSearch-AI-powered-search-tool
     cd inspiraSearch/backend
     ```
 
@@ -41,14 +41,14 @@ Before you begin, ensure you have met the following requirements:
 
 4. **Run the backend server**:
     ```bash
-    flask run
+    python comp.py
     ```
 
 ### Frontend
 
 1. **Navigate to the frontend directory**:
     ```bash
-    cd ../frontend
+    cd ..
     ```
 
 2. **Install dependencies**:
