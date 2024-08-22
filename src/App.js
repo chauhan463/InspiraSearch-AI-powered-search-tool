@@ -1,6 +1,6 @@
 
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
 import Image from "./Components/Image.jsx"
 import Text from './Components/Text.jsx';
@@ -12,8 +12,8 @@ function App() {
             <Routes>
               
             <Route path="/" element={<Layout/>}>
-            <Route index element={<Image />} />
-            <Route path="text" element={<Text/>}/>
+            <Route index element={<Text />} />
+            <Route path="Image" element={<Image/>}/>
 
             </Route>
            

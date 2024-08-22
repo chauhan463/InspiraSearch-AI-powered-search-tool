@@ -11,15 +11,19 @@ CORS(app)
 @app.route('/api/image-search', methods=['POST'])
 def post_data():
     try:
-        loc = request.form['location']  # Access location from form data
+        loc = request.form['location']  # Access location from form datap
         file = request.files['file']    # Access file from form data
-        
+        folder = "./Images"
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+
+        # Load the model
+        model, preprocess = clip.load("ViT-B/32", device=device)
         # Construct full path using os.path.join
-        query_image_path = os.path.join("/home/ubuntu_20_04/Documents/yashasvi/Hackathon/Bhavi/APP2/image-retrieval/public/MIXED2", loc)
-        database_folder = '/home/ubuntu_20_04/Documents/yashasvi/Hackathon/Bhavi/APP2/image-retrieval/public/MIXED2'
+        query_image_path = os.path.join("./Images", loc)
+        database_folder = './Images'
         top_k = 5
-        results = comp.image_search(query_image_path, database_folder, top_k)
-        response = [{'filename': filename, 'similarity': similarity, 'image_path': image_path} for filename, similarity, image_path in results]
+        results = comp.search_by_image(query_image_path, database_folder, top_k)
+        response = [{'filename': filename, 'similarity': similarity} for filename, similarity in results]
 
         print('Received location:', loc)
         print('Received file:', file.filename)
@@ -35,8 +39,8 @@ def post_textdata():
         loc = request.form['file']  # Access filename directly
         
         # Construct full path using os.path.join
-        query_image_path = os.path.join("/home/ubuntu_20_04/Documents/yashasvi/Hackathon/Bhavi/APP2/image-retrieval/public/MIXED2", loc)
-        database_folder = '/home/ubuntu_20_04/Documents/yashasvi/Hackathon/Bhavi/APP2/image-retrieval/public/MIXED2'
+        query_image_path = os.path.join("./Images", loc)
+        database_folder = './Images'
         top_k = 5
         results = comp.image_search(query_image_path, database_folder, top_k)
         response = [{'filename': filename, 'similarity': similarity, 'image_path': image_path} for filename, similarity, image_path in results]

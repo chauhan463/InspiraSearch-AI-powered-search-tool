@@ -1,34 +1,31 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import classNames from 'classnames'
-import backgroundImage from '../../images/BG_3.jpg';
-import Logo_bel from '../../images/new.png';
 
-const linkClass ='flex focus:outline-none focus:ring-offset-2 focus:ring-gray-800 items-center gap-2  leading-3 shadow-md rounded  px-3 py-2 my-1 mx-1 hover:no-underline active:bg-cyan-600 active:outline-cyan-600 active:text-white rounded-sm '
+import Logo from '../../images/LOGO5.png';
+const linkClass = 'flex items-center gap-2  px-3 py-2 my-1 mx-1  relative';
+// const primary_color='#9addcc'
 
 export default function Header(){
     return(
   
  
  <div className="flex flex-col">
-             <div style={{ backgroundImage: `url(${backgroundImage})` }} className='h-20 border-b flex flex-row w-auto gap-20 shadow-2 text-white font-bold cursor-pointer h-16 p-4 flex items-center text-2xl'>
+             <div  className='lg:h-16  flex lg:flex-row flex-col w-auto lg:gap-20 shadow-2 text-white font-bold cursor-pointer  sm:p-4  items-center md:text-2xl'>
                 
-                <div className='ml-10 w-44 h-auto flex py-3'>
-                    <img src={Logo_bel} alt="BEL logo" />
+                <div className='lg:ml-10 sm:w-44 w-32 h-auto flex py-3'>
+                    <img src={Logo} alt="logo" />
                 </div>
-                <div className='text-2xl flex w-3/5  justify-center'>
-                    Content Based Image Retrieval (CBIR)
-                </div>
-            </div>
-
-     
-
-            <div className="m-8 flex items-center justify-center flex-auto space-x-2" >
+                <div className='sm:text-2xl flex w-3/5  justify-center'>
                 {HEADER_LINKS.map((item)=>(
                     <HeaderLink key={item.key} item={item}/>
                 ))}
-                
+                    {/* Content Based Image Retrieval (CBIR) */}
+                </div>
+            
             </div>
+
+     
 
   
           
@@ -42,17 +39,18 @@ export default function Header(){
     }
 
     const HEADER_LINKS = [
-        {
-            key: 'Image',
-            label: 'Image',
-            path: '/',
 
-          },
           {
             key: 'text',
             label: 'Text',
-            path: '/text',
+            path: '/',
           
+          },
+          {
+            key: 'Image',
+            label: 'Image',
+            path: '/Image',
+
           }
        
       ];
@@ -60,16 +58,26 @@ export default function Header(){
 
     function HeaderLink({item}){
         const { pathname } = useLocation();
-        console.log(pathname);
+        
     
         // Check if the current pathname starts with the item's path
   
         return(
             
-            <Link to={item.path} className={classNames( pathname==item.path ? ' text-white bg-cyan-600 active:outline-cyan-600 ' : 'text-gray-600 border border-gray-200 bg-gray-50 cursor-pointer px-3 py-2.5  leading-3 shadow-md rounded hover:bg-gray-200',linkClass)}>
-                
-                {item.label}
+          
+
+            <Link 
+              to={item.path} 
+              className={classNames(
+                pathname === item.path 
+                  ? 'text-[#9addcc] border-b-2 border-[#9addcc]  '
+                  : 'text-gray-400 cursor-pointer px-3 py-2.5  hover:text-gray-200',
+                linkClass
+              )}
+            >
+              {item.label}
             </Link>
+            
         )
     }
 

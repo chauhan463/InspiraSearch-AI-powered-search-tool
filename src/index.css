@@ -10,3 +10,8 @@
 .animate-spin-slow {
     animation: spin-slow 2s linear infinite; /* Change '2s' to adjust the duration (in seconds) */
 }
+
+.bg-radial-neutral {
+    background: radial-gradient(circle, #746f6f, #000);
+  }
+  
