@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 BACKEND SETUP:
 
 There is only one server file : server.py
+=======
+>>>>>>> refs/remotes/origin/main
 
 Dependencies
 List of dependencies required to run the project:
@@ -51,3 +54,8 @@ Running the Code: Execute server.py to run the project:
 
 
 
+<<<<<<< HEAD
+=======
+Acknowledgments
+Mention any contributors, libraries, or resources you used or were inspired by during the development of this project.
+>>>>>>> refs/remotes/origin/main
