@@ -1,6 +1,3 @@
-Project Name
-Overview
-Briefly describe your project here. Mention what it does, its purpose, and any key features or functionalities.
 
 Dependencies
 List of dependencies required to run the project:
