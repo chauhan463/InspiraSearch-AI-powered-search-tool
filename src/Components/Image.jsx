@@ -9,6 +9,7 @@ export default function Image() {
     const [results, setResults] = useState(()=>{ return localStorage.getItem('results_image') ? JSON.parse(localStorage.getItem('results_image')) :[] });
     const [isLoading, setIsLoading] = useState(false);
     const [top_n, setTop_n] = useState(()=>localStorage.getItem('top') || 1);
+    const [err,setErr]=useState('')
 
     useEffect(()=>{
         localStorage.setItem('top',top_n)
@@ -68,6 +69,8 @@ export default function Image() {
             setResults(response.data.results);
         } catch (error) {
             console.error('Error performing image search:', error);
+            setErr("PROBLEM")
+            console.log("SERVER NOT GOOD");
         } finally {
             setIsLoading(false);
         }
@@ -142,8 +145,9 @@ export default function Image() {
                         <LoadingSpinner />
                     </div>
                 )}
+                   {err && <p className="flex justify-center my-4 text-xl font-bold text-red-600"> Please start the server.</p>}
 {results[0] === "ERROR" ? (
-    <p className="w-full text-center text-red-600 text-2xl">Invalid Directory</p>
+    <p className="flex justify-center my-4 text-xl font-bold text-red-600">Invalid Directory</p>
 ) : results && results.length > 0 && (
     <div className="pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {results.map((result, index) => (

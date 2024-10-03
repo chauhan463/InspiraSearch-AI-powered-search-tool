@@ -14,12 +14,13 @@ export default function Image() {
 );
     const [isLoading, setIsLoading] = useState(false);
     const [top_n, setTop_n] = useState(() => localStorage.getItem('top_n') || 1);
+    const [err,setErr]=useState('')
     
 
     // Save states to localStorage whenever they change
     useEffect(() => {
         localStorage.setItem('file', file);
-        console.log(localStorage)
+  
     }, [file]);
 
     useEffect(() => {
@@ -47,6 +48,7 @@ export default function Image() {
                 alert("Please select folder path")
                 return;
             }
+            setErr("")
             setIsLoading(true);
             setResults([]);
             const formData = new FormData();
@@ -62,8 +64,13 @@ export default function Image() {
             setResults(response.data.results);
         } catch (error) {
             console.error('Error performing image search:', error);
+            setErr("PROBLEM")
+            console.log("SERVER NOT GOOD");
+            
+
         } finally {
             setIsLoading(false);
+            
         }
     };
 
@@ -138,8 +145,9 @@ export default function Image() {
                         <LoadingSpinner />
                     </div>
                 )}
+                {err && <p className="flex justify-center my-4 text-xl font-bold text-red-600"> Please start the server.</p>}
 {results[0] === "ERROR" ? (
-    <p className="w-full text-center text-red-600 text-2xl">Invalid Directory</p>
+    <p className="flex justify-center my-4 text-xl font-bold text-red-600">Invalid Directory</p>
 ) : results && results.length > 0 && (
     <div className="pt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {results.map((result, index) => (

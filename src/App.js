@@ -1,7 +1,7 @@
 
 
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom'
-
+import { HashRouter as Router, Routes, Route} from 'react-router-dom'
+// import {  } from 'react-router-dom';
 import Image from "./Components/Image.jsx"
 import Text from './Components/Text.jsx';
 import Layout from './Components/shared/Layout.jsx';
@@ -23,6 +23,7 @@ function App() {
             </Routes>
             
         </Router>
+
 
     
   );

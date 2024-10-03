@@ -7,7 +7,7 @@ import numpy as np
 from flask import Flask, jsonify, request, send_from_directory, abort
 from flask_cors import CORS
 import os
-
+from waitress import serve
 
 
 app = Flask(__name__)
@@ -63,32 +63,7 @@ def search_by_image(query_image, image_features, file_names, model, preprocess, 
     return results
 
 
-# def main():
-#     folder = "./Images"
-#     device = "cuda" if torch.cuda.is_available() else "cpu"
 
-#     # Load the model
-#     model, preprocess = clip.load("ViT-B/32", device=device)
-
-#     # Load and preprocess images
-#  
-
-#     # Example search by text
-#     text_query = "a photo of horse"
-#     text_results = search_by_text(text_query, image_features, file_names, model, device, top_k=5)
-#     print(f"Top 5 matches for text query '{text_query}':")
-#     print(text_results)
-#     for i, (file_name, similarity) in enumerate(text_results):
-#         print(f"Rank {i+1}: {file_name} with similarity {similarity}")
-
-#     # Example search by image
-#     query_image_path = "./Images/cat2.jpg"
-#     query_image = Image.open(query_image_path).convert("RGB")
-#     image_results = search_by_image(query_image, image_features, file_names, model, preprocess, top_k=5)
-#     print(f"Top 5 matches for image query '{query_image_path}':")
-#     print(image_results)
-#     for i, (file_name, similarity) in enumerate(image_results):
-#         print(f"Rank {i+1}: {file_name} with similarity {similarity}")
 
 @app.route('/serve_image/<path:filename>')
 def serve_image(filename):
@@ -203,4 +178,4 @@ def post_textdata():
 
 if __name__ == '__main__':
     # os.environ['BASE_IMAGE_DIRECTORY'] = r"D:\Rishikesh trip\NEW"
-    app.run(host='0.0.0.0', debug=True)
+    serve(app, host='0.0.0.0', port=5000)
